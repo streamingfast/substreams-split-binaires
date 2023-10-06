@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package contract.v1;
+
+message Events {
+    repeated ChangedFeesCollectorCutPerMillion changed_fees_collector_cut_per_millions = 1;
+    repeated ChangedPublicationFee changed_publication_fees = 2;
+    repeated ChangedRoyaltiesCutPerMillion changed_royalties_cut_per_millions = 3;
+    repeated FeesCollectorSet fees_collector_sets = 4;
+    repeated MetaTransactionExecuted meta_transaction_executeds = 5;
+    repeated OrderCancelled order_cancelleds = 6;
+    repeated OrderCreated order_createds = 7;
+    repeated OrderSuccessful order_successfuls = 8;
+    repeated OwnershipTransferred ownership_transferreds = 9;
+    repeated Paused pauseds = 10;
+    repeated RoyaltiesManagerSet royalties_manager_sets = 11;
+    repeated Unpaused unpauseds = 12;
+}
+
+message ChangedFeesCollectorCutPerMillion {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string fees_collector_cut_per_million = 5;
+}
+
+message ChangedPublicationFee {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string publication_fee = 5;
+}
+
+message ChangedRoyaltiesCutPerMillion {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string royalties_cut_per_million = 5;
+}
+
+message FeesCollectorSet {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes old_fees_collector = 5;
+    bytes new_fees_collector = 6;
+}
+
+message MetaTransactionExecuted {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes user_address = 5;
+    bytes relayer_address = 6;
+    bytes function_signature = 7;
+}
+
+message OrderCancelled {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes id = 5;
+    string asset_id = 6;
+    bytes seller = 7;
+    bytes nft_address = 8;
+}
+
+message OrderCreated {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes id = 5;
+    string asset_id = 6;
+    bytes seller = 7;
+    bytes nft_address = 8;
+    string price_in_wei = 9;
+    string expires_at = 10;
+}
+
+message OrderSuccessful {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes id = 5;
+    string asset_id = 6;
+    bytes seller = 7;
+    bytes nft_address = 8;
+    string total_price = 9;
+    bytes buyer = 10;
+}
+
+message OwnershipTransferred {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_owner = 5;
+    bytes new_owner = 6;
+}
+
+message Paused {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes account = 5;
+}
+
+message RoyaltiesManagerSet {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes old_royalties_manager = 5;
+    bytes new_royalties_manager = 6;
+}
+
+message Unpaused {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes account = 5;
+}

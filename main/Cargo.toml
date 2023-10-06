@@ -1,0 +1,17 @@
+[package]
+name = "main"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "main"
+crate-type = ["cdylib"]
+
+[dependencies]
+common = { path = "../common" }
+hex-literal = { workspace = true }
+num-bigint = { workspace = true }
+num-traits = { workspace = true }
+substreams = { workspace = true }
+substreams-ethereum = { workspace = true }
+substreams-database-change = "1.2"

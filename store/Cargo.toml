@@ -1,0 +1,13 @@
+[package]
+name = "store"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "store_stats"
+crate-type = ["cdylib"]
+
+[dependencies]
+common = { path = "../common" }
+substreams = { workspace = true }
+substreams-ethereum = { workspace = true }

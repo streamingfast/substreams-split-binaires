@@ -1,0 +1,28 @@
+[workspace]
+members = ["common", "main", "store"]
+
+[workspace.package]
+version = "0.0.1"
+edition = "2021"
+description = "Substreams example of split WASM for store and final output module."
+homepage = "https://substreams.streamingfast.io/"
+repository = "https://github.com/streamingfast/substreams-ethereum/tree/develop/substreams-ethereum"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["substreams", "ethereum", "streamingfast", "firehose", "thegraph"]
+categories = ["api-bindings", "external-ffi-bindings", "wasm"]
+
+[workspace.dependencies]
+ethabi = "17"
+hex-literal = "0.3"
+num-bigint = "0.4"
+num-traits = "0.2"
+prost = "0.11"
+prost-types = "0.11"
+substreams = "0.5"
+substreams-ethereum = "0.9"
+
+[profile.release]
+lto = true
+opt-level = 's'
+strip = "debuginfo"
